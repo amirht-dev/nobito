@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --clr-primary-50-hsl: 173 22% 93%;
+    --clr-primary-100-hsl: 173 22% 78%;
+    --clr-primary-200-hsl: 174 23% 67%;
+    --clr-primary-300-hsl: 173 22% 52%;
+    --clr-primary-400-hsl: 174 30% 43%;
+    --clr-primary-500-hsl: 173 57% 28%;
+    --clr-primary-600-hsl: 174 57% 26%;
+    --clr-primary-700-hsl: 174 57% 20%;
+    --clr-primary-800-hsl: 173 57% 15%;
+    --clr-primary-900-hsl: 175 57% 12%;
+
+    --clr-secondary-50-hsl: 35 100% 96%;
+    --clr-secondary-100-hsl: 36 100% 88%;
+    --clr-secondary-200-hsl: 36 100% 83%;
+    --clr-secondary-300-hsl: 36 100% 75%;
+    --clr-secondary-400-hsl: 36 100% 70%;
+    --clr-secondary-500-hsl: 36 100% 63%;
+    --clr-secondary-600-hsl: 36 79% 57%;
+    --clr-secondary-700-hsl: 36 59% 45%;
+    --clr-secondary-800-hsl: 36 59% 35%;
+    --clr-secondary-900-hsl: 36 59% 26%;
+
+    --clr-accent-50-hsl: 34 100% 99%;
+    --clr-accent-100-hsl: 37 100% 96%;
+    --clr-accent-200-hsl: 37 100% 94%;
+    --clr-accent-300-hsl: 36 100% 91%;
+    --clr-accent-400-hsl: 36 100% 89%;
+    --clr-accent-500-hsl: 36 100% 87%;
+    --clr-accent-600-hsl: 35 57% 79%;
+    --clr-accent-700-hsl: 36 24% 62%;
+    --clr-accent-800-hsl: 36 15% 48%;
+    --clr-accent-900-hsl: 36 15% 36%;
+
+    --clr-white-50-hsl: 0 0% 100%;
+    --clr-white-100-hsl: 0 0% 99%;
+    --clr-white-200-hsl: 0 0% 99%;
+    --clr-white-300-hsl: 0 0% 98%;
+    --clr-white-400-hsl: 0 0% 98%;
+    --clr-white-500-hsl: 0 0% 98%;
+    --clr-white-600-hsl: 0 0% 89%;
+    --clr-white-700-hsl: 0 0% 69%;
+    --clr-white-800-hsl: 0 0% 54%;
+    --clr-white-900-hsl: 0 0% 41%;
+
+    --clr-black-50-hsl: 0 0% 91%;
+    --clr-black-100-hsl: 0 0% 71%;
+    --clr-black-200-hsl: 0 0% 57%;
+    --clr-black-300-hsl: 0 0% 38%;
+    --clr-black-400-hsl: 0 0% 25%;
+    --clr-black-500-hsl: 0 0% 7%;
+    --clr-black-600-hsl: 0 0% 6%;
+    --clr-black-700-hsl: 0 0% 5%;
+    --clr-black-800-hsl: 0 0% 4%;
+    --clr-black-900-hsl: 0 0% 3%;
+
+    --clr-grey-50-hsl: 0 0% 95%;
+    --clr-grey-100-hsl: 0 0% 83%;
+    --clr-grey-200-hsl: 0 0% 75%;
+    --clr-grey-300-hsl: 0 0% 64%;
+    --clr-grey-400-hsl: 0 0% 57%;
+    --clr-grey-500-hsl: 0 0% 46%;
+    --clr-grey-600-hsl: 0 0% 42%;
+    --clr-grey-700-hsl: 0 0% 33%;
+    --clr-grey-800-hsl: 0 0% 25%;
+    --clr-grey-900-hsl: 0 0% 19%;
+
+    --clr-warning-50-hsl: 48 92% 95%;
+    --clr-warning-100-hsl: 47 93% 84%;
+    --clr-warning-200-hsl: 47 93% 76%;
+    --clr-warning-300-hsl: 47 93% 65%;
+    --clr-warning-400-hsl: 47 93% 59%;
+    --clr-warning-500-hsl: 47 100% 48%;
+    --clr-warning-600-hsl: 47 100% 44%;
+    --clr-warning-700-hsl: 47 100% 34%;
+    --clr-warning-800-hsl: 47 100% 26%;
+    --clr-warning-900-hsl: 47 100% 20%;
+
+    --clr-success-50-hsl: 156 43% 93%;
+    --clr-success-100-hsl: 154 44% 79%;
+    --clr-success-200-hsl: 154 44% 69%;
+    --clr-success-300-hsl: 154 44% 54%;
+    --clr-success-400-hsl: 154 53% 45%;
+    --clr-success-500-hsl: 154 95% 32%;
+    --clr-success-600-hsl: 154 95% 29%;
+    --clr-success-700-hsl: 154 95% 23%;
+    --clr-success-800-hsl: 154 96% 17%;
+    --clr-success-900-hsl: 154 94% 13%;
+
+    --clr-error-50-hsl: 0 59% 94%;
+    --clr-error-100-hsl: 0 61% 83%;
+    --clr-error-200-hsl: 0 60% 74%;
+    --clr-error-300-hsl: 0 60% 63%;
+    --clr-error-400-hsl: 0 61% 55%;
+    --clr-error-500-hsl: 0 77% 44%;
+    --clr-error-600-hsl: 0 77% 40%;
+    --clr-error-700-hsl: 0 77% 31%;
+    --clr-error-800-hsl: 0 77% 24%;
+    --clr-error-900-hsl: 0 77% 19%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
