@@ -4,6 +4,7 @@ import type {
   DetailedHTMLFactory,
   ElementType,
 } from "react";
+import type { LiteralUnion, Merge } from "type-fest";
 
 export type DateType = string | number | Date;
 
@@ -86,3 +87,8 @@ export type ComponentPropsWithoutRefWithProps<
 
 export type UnwrapFactoryElement<F> =
   F extends DetailedHTMLFactory<never, infer P> ? P : never;
+
+export type SVGIconProps<TFill extends string = never> = Merge<
+  ComponentPropsWithoutRef<"svg">,
+  { fillPath?: LiteralUnion<"currentColor" | TFill, string> }
+>;

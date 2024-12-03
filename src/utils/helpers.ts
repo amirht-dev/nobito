@@ -11,3 +11,7 @@ export function formatNameToShort(name: string) {
     .map((phrase) => phrase[0].toUpperCase())
     .join("");
 }
+
+export function formatStorybookOptions(options: readonly string[]) {
+  return options.map((v) => `"${v}"`).join(" | ");
+}
