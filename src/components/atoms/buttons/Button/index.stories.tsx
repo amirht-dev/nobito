@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@/types/storybook";
 import Button from ".";
-import { Bootstrap_Outline } from "../icons/Crypto-Company/Bootstrap";
+import { Bootstrap_Outline } from "../../icons/Crypto-Company/Bootstrap";
 import {
   BUTTON_COLORS,
   BUTTON_SIZES,

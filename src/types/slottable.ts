@@ -23,7 +23,7 @@ type SlottableWithAsChildProps<P extends Props> = Merge<
 >;
 
 type SlottableWithoutAsChildProps<P extends Props> = Merge<
-  Omit<P, "asChild" | "children">,
+  Omit<P, "asChild">,
   {
     asChild?: false;
   }
