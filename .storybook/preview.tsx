@@ -1,7 +1,7 @@
-import type { Preview } from "@storybook/react";
 import React from "react";
 import { iranSansX } from "../src/lib/fonts";
 import "../src/styles/globals.css";
+import type { Preview } from "../src/types/storybook/index";
 
 const preview: Preview = {
   parameters: {
@@ -11,11 +11,19 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    viewport: {
+      defaultViewport: "mobile1",
+    },
+    nextjs: {
+      appDirectory: true,
+    },
   },
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div className={`${iranSansX.variable} font-iranSansX`}>{Story()}</div>
+      <div dir="rtl" className={`${iranSansX.variable} font-iranSansX`}>
+        {Story()}
+      </div>
     ),
   ],
 };
