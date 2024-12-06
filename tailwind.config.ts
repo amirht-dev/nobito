@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import TailwindAnimate from "tailwindcss-animate";
+import Plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
@@ -154,6 +155,23 @@ export default {
         DEFAULT: "16px",
       },
     },
+    backgroundImage: {
+      pattern: "url('/patterns/pattern1.png')",
+    },
   },
-  plugins: [TailwindAnimate],
+  plugins: [
+    TailwindAnimate,
+    Plugin(({ addUtilities }) => {
+      addUtilities({
+        ".bg-pattern-mobile": {
+          background:
+            "hsl(var(--clr-primary-500-hsl)) url('/patterns/pattern1.png') top left/500px",
+        },
+        ".bg-pattern-desktop": {
+          background:
+            "hsl(var(--clr-primary-500-hsl)) url('/patterns/pattern1.png') top left/700px",
+        },
+      });
+    }),
+  ],
 } satisfies Config;
