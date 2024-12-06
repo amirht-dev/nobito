@@ -148,6 +148,12 @@ export default {
         144: "144%",
       },
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "16px",
+      },
+    },
   },
   plugins: [TailwindAnimate],
 } satisfies Config;
