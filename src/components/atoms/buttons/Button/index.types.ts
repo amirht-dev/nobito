@@ -13,8 +13,8 @@ export type ButtonOwnProps = {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   size?: ArrayValues<typeof BUTTON_SIZES>;
-  variant?: ArrayValues<typeof BUTTON_VARIANTS>;
   color?: ArrayValues<typeof BUTTON_COLORS>;
+  variant?: ArrayValues<typeof BUTTON_VARIANTS>;
 };
 
 export type ButtonProps = SlottableProps<
