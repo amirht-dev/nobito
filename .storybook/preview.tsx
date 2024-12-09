@@ -12,7 +12,7 @@ const preview: Preview = {
       },
     },
     viewport: {
-      defaultViewport: "mobile1",
+      defaultViewport: "mobile2",
     },
     nextjs: {
       appDirectory: true,
