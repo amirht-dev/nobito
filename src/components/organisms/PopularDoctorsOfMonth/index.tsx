@@ -1,4 +1,3 @@
-import DoctorCard from "@/components/atoms/DoctorCard";
 import {
   Embla,
   EmblaContainer,
@@ -18,6 +17,7 @@ import {
   SectionTitle,
   SectionTitleBold,
 } from "@/components/molcules/Section";
+import DoctorCard from "@/components/molcules/cards/DoctorCard";
 
 const PopularDoctorsOfMonth = () => {
   return (
@@ -41,7 +41,7 @@ const PopularDoctorsOfMonth = () => {
         </SectionAction>
       </SectionHeader>
 
-      <SectionContent>
+      <SectionContent className="overflow-hidden pb-1">
         <Embla type="flex" align="start" direction="rtl" skipSnaps>
           <EmblaWrapper className="container select-none overflow-visible">
             <EmblaContainer>

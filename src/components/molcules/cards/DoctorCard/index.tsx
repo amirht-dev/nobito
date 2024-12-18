@@ -1,9 +1,9 @@
 import { tv } from "@/lib/tv";
 import Image from "next/image";
 import { forwardRef } from "react";
-import HashTag from "../HashTag";
-import { Location_Outline } from "../icons/Location/Location";
-import { Star1_Bold } from "../icons/Support-Like-Question/Star1";
+import HashTag from "../../../atoms/HashTag";
+import { Location_Outline } from "../../../atoms/icons/Location/Location";
+import { Star1_Bold } from "../../../atoms/icons/Support-Like-Question/Star1";
 import type { DoctorCardProps } from "./index.types";
 
 const doctorCardVariants = tv({
