@@ -11,6 +11,9 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    backgrounds: {
+      default: "light",
+    },
     viewport: {
       defaultViewport: "mobile2",
     },
