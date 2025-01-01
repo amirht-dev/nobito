@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import TailwindAnimate from "tailwindcss-animate";
 import Plugin from "tailwindcss/plugin";
-import {withTV} from "tailwind-variants/transformer"
+import { withTV } from "tailwind-variants/transformer";
 
 const config: Config = {
   darkMode: ["class"],
@@ -177,4 +177,4 @@ const config: Config = {
   ],
 };
 
-export default withTV(config)
+export default withTV(config);

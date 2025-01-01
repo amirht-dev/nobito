@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { type Context, createContext } from "react";
+import { screens } from "@/config.json";
 import "client-only";
+import { type Context, createContext, useContext } from "react";
 
 type CreateCXTOptions = {
   throw?: boolean;
@@ -42,4 +42,11 @@ export function createCTX<TContext>(
     context,
     hook,
   };
+}
+
+export function getCurrentBP() {
+  return Object.entries(screens).reduce(
+    (currentBP, bp) => (innerWidth > parseInt(bp[1]) ? bp : currentBP),
+    ["DEFAULT", "0px"],
+  ) as [keyof typeof screens | "DEFAULT", string];
 }
