@@ -1,16 +1,14 @@
 "use client";
 
 import useCombineRefs from "@/hooks/useCombineRefs";
-import type { OneOrMore } from "@/types/utils";
+import useEmblaEvent from "@/hooks/useEmblaEvent";
 import { cn } from "@/utils/helpers";
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
-import type { EmblaCarouselType, EmblaEventType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   forwardRef,
   useCallback,
-  useEffect,
   useMemo,
   useState,
   type ComponentPropsWithoutRef,
@@ -33,26 +31,6 @@ import type {
   EmblaProps,
   EmblaWrapperProps,
 } from "./index.types";
-
-function useEmblaEvent(
-  api: EmblaCarouselType | undefined,
-  event: OneOrMore<EmblaEventType>,
-  cb: (api: EmblaCarouselType) => void,
-) {
-  useEffect(() => {
-    if (!api) return;
-
-    (Array.isArray(event) ? event : [event]).forEach((e) => {
-      api.on(e, cb);
-    });
-
-    return () => {
-      (Array.isArray(event) ? event : [event]).forEach((e) => {
-        api.off(e, cb);
-      });
-    };
-  }, [api, event, cb]);
-}
 
 const Embla = ({ children, type = "flex", plugins, ...props }: EmblaProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(props, plugins);
