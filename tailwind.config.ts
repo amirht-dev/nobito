@@ -1,7 +1,7 @@
+import { withTV } from "tailwind-variants/transformer";
 import type { Config } from "tailwindcss";
 import TailwindAnimate from "tailwindcss-animate";
 import Plugin from "tailwindcss/plugin";
-import { withTV } from "tailwind-variants/transformer";
 
 const config: Config = {
   darkMode: ["class"],
@@ -144,12 +144,6 @@ const config: Config = {
       "body-4": ["12px", { lineHeight: "155%" }],
       "body-5": ["10px", { lineHeight: "155%" }],
     },
-    extend: {
-      lineHeight: {
-        155: "155%",
-        144: "144%",
-      },
-    },
     container: {
       center: true,
       padding: {
@@ -158,6 +152,26 @@ const config: Config = {
     },
     backgroundImage: {
       pattern: "url('/patterns/pattern1.png')",
+    },
+    extend: {
+      lineHeight: {
+        155: "155%",
+        144: "144%",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
   plugins: [
