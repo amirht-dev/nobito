@@ -1,8 +1,19 @@
+import Chip from "@/components/atoms/Chip";
+import {
+  Embla,
+  EmblaContainer,
+  EmblaSlide,
+  EmblaWrapper,
+} from "@/components/atoms/Embla";
+import { CloseCircle_Outline } from "@/components/atoms/icons/Essesional/CloseCircle";
+import SearchSheetContent from "@/components/organisms/SearchSheetContent";
+import { Dialog, DialogContent, DialogTrigger } from "../Dialog";
 import SearchBox from "../SearchBox";
+import { Sheet, SheetTrigger } from "../Sheet";
 
 const Header = () => {
   return (
-    <header className="bg-pattern-mobile lg:bg-pattern-desktop pt-12">
+    <header className="pt-12 bg-pattern-mobile lg:bg-pattern-desktop">
       <div className="container max-w-[700px]">
         <svg
           viewBox="0 0 18 18"
@@ -39,7 +50,53 @@ const Header = () => {
         </svg>
       </div>
       <div className="container mt-2 translate-y-1/2">
-        <SearchBox className="mx-auto" />
+        <Dialog>
+          <DialogTrigger asChild>
+            <SearchBox className="mx-auto max-lg:hidden" />
+          </DialogTrigger>
+
+          <DialogContent
+            className="flex h-[60vh] max-w-fit flex-col gap-6 rounded-3xl bg-[#f5f5f5] p-12"
+            dir="rtl"
+          >
+            <SearchBox />
+
+            <hr className="h-px w-full border-grey-200" />
+
+            <div className="flex items-center gap-6">
+              <span className="text-tittle-2 font-medium text-black-400">
+                جستجو های اخیر:
+              </span>
+              <Embla direction="rtl" dragFree>
+                <EmblaWrapper className="flex-1">
+                  <EmblaContainer className="select-none [--gap:12px] [--slide-size:fit-content]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <EmblaSlide key={i} asChild>
+                        <Chip
+                          key={i}
+                          suffixIcon={<CloseCircle_Outline />}
+                          className="border-none bg-black-50 px-3 py-1.5 text-grey-500"
+                        >
+                          سالن انتظار
+                        </Chip>
+                      </EmblaSlide>
+                    ))}
+                  </EmblaContainer>
+                </EmblaWrapper>
+              </Embla>
+            </div>
+
+            <hr className="h-px w-full border-grey-200" />
+          </DialogContent>
+        </Dialog>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <SearchBox className="mx-auto lg:hidden" />
+          </SheetTrigger>
+
+          <SearchSheetContent />
+        </Sheet>
       </div>
     </header>
   );
