@@ -1,4 +1,3 @@
-import React from "react";
 import { iranSansX } from "../src/lib/fonts";
 import "../src/styles/globals.css";
 import type { Preview } from "../src/types/storybook/index";
