@@ -5,7 +5,7 @@ import { type PropsWithChildren } from "react";
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html className={iranSansX.variable} lang="fa" dir="rtl">
-      <body className="font-iranSansX">
+      <body className="bg-[#f5f5f5] font-iranSansX">
         {children}
         <div id="sheet-root"></div>
         <div id="dialog-root"></div>
