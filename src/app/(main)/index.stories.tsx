@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@/types/storybook";
+import MainLayout from "./layout";
 import Home from "./page";
 
 const meta = {
@@ -8,6 +9,7 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [(Story) => <MainLayout>{Story()}</MainLayout>],
 } satisfies Meta;
 
 export default meta;
