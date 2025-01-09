@@ -97,7 +97,13 @@ Input.displayName = "Input";
 
 const Field = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
   (props, ref) => {
-    return <div {...props} ref={ref} className="group space-y-2" />;
+    return (
+      <div
+        {...props}
+        ref={ref}
+        className="group flex flex-col gap-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 [&:has(:disabled)_*]:cursor-not-allowed"
+      />
+    );
   },
 );
 
@@ -111,7 +117,7 @@ const FieldLabel = forwardRef<
     <label
       {...props}
       ref={ref}
-      className="text-tittle-3 font-normal text-grey-400 transition-all group-focus-within:text-primary-500 group-has-[input[data-fill]]:text-black-400 group-focus-within:group-has-[input[data-fill]]:text-primary-500"
+      className="self-start text-tittle-3 font-normal text-grey-400 transition-all group-focus-within:text-primary-500 group-has-[input[data-fill]]:text-black-400 group-focus-within:group-has-[input[data-fill]]:text-primary-500"
     />
   );
 });

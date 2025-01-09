@@ -15,3 +15,7 @@ export function formatNameToShort(name: string) {
 export function formatStorybookOptions(options: readonly string[]) {
   return options.map((v) => `"${v}"`).join(" | ");
 }
+
+export function wait(ms = 1000) {
+  return new Promise((res) => setTimeout(res, ms));
+}
