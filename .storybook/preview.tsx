@@ -1,3 +1,4 @@
+import QueryProvider from "@/components/utils/QueryProvider";
 import { iranSansX } from "../src/lib/fonts";
 import "../src/styles/globals.css";
 import type { Preview } from "../src/types/storybook/index";
@@ -22,6 +23,7 @@ const preview: Preview = {
   },
   tags: ["autodocs"],
   decorators: [
+    (Story) => <QueryProvider>{Story()}</QueryProvider>,
     (Story) => (
       <div dir="rtl" className={`${iranSansX.variable} font-iranSansX`}>
         {Story()}
