@@ -40,3 +40,14 @@ export const HistoryOfTurns = {
     },
   },
 } satisfies Story;
+
+export const Massages = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: dashboardNavItems.messages.href,
+        segments: dashboardNavItems.messages.href.split("/").slice(2),
+      },
+    },
+  },
+} satisfies Story;

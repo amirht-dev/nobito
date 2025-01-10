@@ -3,6 +3,10 @@ import {
   NoteText_Outline,
 } from "@/components/atoms/icons/Content-Edit/NoteText";
 import {
+  SMS_Bold,
+  SMS_Outline,
+} from "@/components/atoms/icons/Emails-Messages/SMS";
+import {
   Frame_Bold,
   Frame_Outline,
 } from "@/components/atoms/icons/Users/Frame";
@@ -25,5 +29,14 @@ export const dashboardNavItems = {
     },
     href: "/dashboard/history-of-turns",
     breadcrumbLabel: "تاریخچه نوبت ها",
+  },
+  messages: {
+    label: "پیغام ها",
+    icons: {
+      disactive: <SMS_Outline />,
+      active: <SMS_Bold />,
+    },
+    href: "/dashboard/messages",
+    breadcrumbLabel: "پیغام ها",
   },
 };
