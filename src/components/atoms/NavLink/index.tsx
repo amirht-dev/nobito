@@ -22,7 +22,7 @@ const NavLink = ({ className, activeClassNames, ...props }: NavLinkProps) => {
     <Link
       {...props}
       aria-selected={isActive}
-      data-active={isActive}
+      data-state={isActive ? "active" : "disactive"}
       className={resultClass}
     />
   );

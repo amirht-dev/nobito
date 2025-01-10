@@ -43,14 +43,19 @@ const DashboardSidebar = forwardRef<
           <li key={idx} className="py-6">
             <NavLink
               href={item.href}
-              className="flex items-center gap-2 text-body-1 font-medium leading-none"
+              className="group flex items-center gap-2 text-body-1 font-medium leading-none"
               activeClassNames={{
                 default: "text-black-400",
                 active:
                   "text-primary-500 before:absolute before:h-12 before:w-2 before:-translate-x-6 before:rounded-e-full before:bg-primary-500 rtl:before:translate-x-6",
               }}
             >
-              <Slot className="size-6">{item.icon}</Slot>
+              <Slot className="size-6 group-data-[state=active]:hidden">
+                {item.icons.disactive}
+              </Slot>
+              <Slot className="size-6 group-data-[state=disactive]:hidden">
+                {item.icons.active}
+              </Slot>
               <span className="-mb-1">{item.label}</span>
             </NavLink>
           </li>
