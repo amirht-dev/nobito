@@ -6,7 +6,7 @@ import {
 } from "@/components/atoms/Tabs";
 import TurnCard from "@/components/molcules/cards/TurnCard";
 
-const DashboardAccountPage = () => {
+export default function DashboardHistoryOfTurnsPage() {
   return (
     <div className="lg:rounded-2xl lg:border lg:border-grey-100 lg:bg-white-100 lg:p-6">
       <h2 className="text-body-1 font-medium text-black-400 lg:text-tittle-1">
@@ -49,6 +49,4 @@ const DashboardAccountPage = () => {
       </Tabs>
     </div>
   );
-};
-
-export default DashboardAccountPage;
+}
