@@ -123,6 +123,14 @@ interface ControlsParameter {
    * requiredFirst: Same as alpha, with any required arg types displayed first
    */
   sort?: "none" | "alpha" | "requiredFirst";
+  /**
+   * @description Disable the ability to create or edit stories from the Controls panel.
+   *
+   * @type {boolean}
+   *
+   * @default false
+   */
+  disableSaveFromUI?: "none" | "alpha" | "requiredFirst";
 }
 
 interface OptionsParameter {
