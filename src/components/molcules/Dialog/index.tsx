@@ -34,7 +34,7 @@ const DialogContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPortal
     container={
-      "document" in global
+      typeof window !== "undefined"
         ? (document.getElementById("dialog-root") ?? document.body)
         : undefined
     }

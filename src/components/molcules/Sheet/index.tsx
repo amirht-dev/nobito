@@ -78,9 +78,10 @@ const SheetContent = React.forwardRef<
 >(({ side = "right", className, children, container, ...props }, ref) => (
   <SheetPortal
     container={
-      (container ?? "document" in globalThis)
+      container ??
+      (typeof window !== "undefined"
         ? (document.getElementById("sheet-root") ?? document.body)
-        : undefined
+        : undefined)
     }
   >
     <SheetOverlay />
