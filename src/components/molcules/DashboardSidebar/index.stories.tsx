@@ -27,3 +27,16 @@ export const Account = {
     },
   },
 } satisfies Story;
+
+export const HistoryOfTurns = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: dashboardNavItems["history-of-turns"].href,
+        segments: dashboardNavItems["history-of-turns"].href
+          .split("/")
+          .slice(2),
+      },
+    },
+  },
+} satisfies Story;
