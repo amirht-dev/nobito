@@ -51,3 +51,14 @@ export const Massages = {
     },
   },
 } satisfies Story;
+
+export const MedicalRecord = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: dashboardNavItems["medical-record"].href,
+        segments: dashboardNavItems["medical-record"].href.split("/").slice(2),
+      },
+    },
+  },
+} satisfies Story;

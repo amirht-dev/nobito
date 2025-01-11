@@ -7,6 +7,10 @@ import {
   SMS_Outline,
 } from "@/components/atoms/icons/Emails-Messages/SMS";
 import {
+  Folder2_Bold,
+  Folder2_Outline,
+} from "@/components/atoms/icons/Files/Folder2";
+import {
   Frame_Bold,
   Frame_Outline,
 } from "@/components/atoms/icons/Users/Frame";
@@ -38,5 +42,14 @@ export const dashboardNavItems = {
     },
     href: "/dashboard/messages",
     breadcrumbLabel: "پیغام ها",
+  },
+  "medical-record": {
+    label: "پرونده پزشکی",
+    icons: {
+      disactive: <Folder2_Outline />,
+      active: <Folder2_Bold />,
+    },
+    href: "/dashboard/medical-record",
+    breadcrumbLabel: "پرونده پزشکی",
   },
 };
