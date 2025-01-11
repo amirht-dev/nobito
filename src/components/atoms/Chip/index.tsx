@@ -9,7 +9,7 @@ const chipVariants = tv(
   {
     slots: {
       container:
-        "inline-flex items-center gap-2 text-nowrap rounded-full border border-grey-400 px-3 py-2 text-body-4 leading-none text-grey-400",
+        "inline-flex items-center gap-2 text-nowrap font-medium rounded-full border border-grey-400 px-3 py-2 text-body-4 leading-none text-grey-400 lg:text-tittle-2",
       icon: "size-[18px]",
     },
   },
