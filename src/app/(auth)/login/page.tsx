@@ -26,6 +26,8 @@ const LoginPage = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           fullWidth
+          autoFocus
+          placeholder="مثلا ۰۹۱۲۳۴۵۶۷۸۹ یا email@gmail.com"
         />
         <p className="mt-2 text-label-2 font-normal text-primary-500 lg:text-tittle-3">
           لطفا این قسمت را خالی نگذارید

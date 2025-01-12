@@ -13,6 +13,7 @@ import Logo from "@/components/atoms/Logo";
 import NavLink from "@/components/atoms/NavLink";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
 import { dashboardNavItems } from "@/constants/dashboard";
+import { signIn } from "@/lib/auth";
 import Link from "next/link";
 import {
   Accordion,
@@ -59,9 +60,16 @@ function Buttons() {
         <Notification_Outline className="size-8 text-grey-500" />
       </IconButton>
 
-      <Button className="max-lg:hidden" size="lg" asChild>
-        <Link href="#">ورود/ثبت نام</Link>
-      </Button>
+      <form
+        action={async () => {
+          "use server";
+          await signIn();
+        }}
+      >
+        <Button className="max-lg:hidden" size="lg" type="submit">
+          ورود/ثبت نام
+        </Button>
+      </form>
     </div>
   );
 }
