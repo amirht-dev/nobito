@@ -14,6 +14,7 @@ import {
   Folder2_Bold,
   Folder2_Outline,
 } from "@/components/atoms/icons/Files/Folder2";
+import { Key_Bold, Key_Outline } from "@/components/atoms/icons/Security/Key";
 import {
   Frame_Bold,
   Frame_Outline,
@@ -64,5 +65,14 @@ export const dashboardNavItems = {
     },
     href: "/dashboard/feedbacks",
     breadcrumbLabel: "بازخوردها",
+  },
+  password: {
+    label: "رمز عبور",
+    icons: {
+      disactive: <Key_Outline />,
+      active: <Key_Bold />,
+    },
+    href: "/dashboard/password",
+    breadcrumbLabel: "رمز عبور",
   },
 };

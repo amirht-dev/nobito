@@ -73,3 +73,14 @@ export const Feedbacks = {
     },
   },
 } satisfies Story;
+
+export const Password = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: dashboardNavItems.password.href,
+        segments: dashboardNavItems.password.href.split("/").slice(2),
+      },
+    },
+  },
+} satisfies Story;
