@@ -7,9 +7,14 @@ import MessageCard from "@/components/molcules/cards/MessageCard";
 import clsx from "clsx";
 import { useState } from "react";
 
-const messages = Array.from({ length: 20 }, () =>
-  Math.floor(Math.random() * 3),
-).map((num) => (num === 0 ? "notification" : num === 1 ? "order" : "other"));
+const messages = [
+  "notification",
+  "order",
+  "other",
+  "notification",
+  "order",
+  "other",
+] as const;
 
 const MessagesList = () => {
   const [variant, setVariant] = useState<(typeof messages)[number] | "all">(

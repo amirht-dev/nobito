@@ -15,7 +15,7 @@ export const Speaker_Outline = forwardRef<SVGSVGElement, SVGIconProps>(
       >
         <g
           id="8134631_speaker_advertising_megaphone_loud_marketing_icon 2"
-          clip-path="url(#clip0_1322_26106)"
+          clipPath="url(#clip0_1322_26106)"
         >
           <g id="Icons">
             <g id="Group">

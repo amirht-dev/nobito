@@ -7,7 +7,7 @@ import {
 } from "@/components/atoms/Embla";
 import { CloseCircle_Outline } from "@/components/atoms/icons/Essesional/CloseCircle";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
-import { Dialog, DialogContent, DialogTrigger } from "../Dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "../Dialog";
 import SearchBox from "../SearchBox";
 import { Sheet, SheetTrigger } from "../Sheet";
 
@@ -59,6 +59,7 @@ const Header = () => {
             className="flex h-[60vh] max-w-fit flex-col gap-6 rounded-3xl bg-[#f5f5f5] p-12"
             dir="rtl"
           >
+            <DialogTitle className="sr-only">search doctors</DialogTitle>
             <SearchBox />
 
             <hr className="h-px w-full border-grey-200" />

@@ -55,7 +55,7 @@ const SelectFieldInput = forwardRef<
   const { value } = useSelectContext();
 
   return (
-    <PopoverTrigger className="group" disabled={disabled}>
+    <PopoverTrigger className="group" disabled={disabled} asChild>
       <Field id={id} required={required}>
         <FieldLabel>{label}</FieldLabel>
         <Input

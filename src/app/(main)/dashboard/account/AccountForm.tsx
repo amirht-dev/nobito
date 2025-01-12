@@ -65,6 +65,7 @@ function LocationFields() {
         <SelectFieldInput
           id="state"
           value={state?.split("-")[1]}
+          readOnly
           label="استان"
         />
 
@@ -87,6 +88,7 @@ function LocationFields() {
           id="city"
           label="شهر"
           value={city?.split("-")[1]}
+          readOnly
           disabled={!state}
         />
 

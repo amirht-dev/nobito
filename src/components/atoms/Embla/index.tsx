@@ -8,6 +8,7 @@ import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   forwardRef,
+  Fragment,
   useCallback,
   useMemo,
   useState,
@@ -187,7 +188,6 @@ const EmblaNavigation = forwardRef<HTMLDivElement, EmblaNavigationProps>(
       useCallback((api) => {
         setCount(api.scrollSnapList().length);
         setSelected(api.selectedScrollSnap());
-        console.log(api.scrollSnapList());
       }, []),
     );
 
@@ -222,9 +222,8 @@ const EmblaNavigation = forwardRef<HTMLDivElement, EmblaNavigationProps>(
           const isSelected = selected === idx;
           return (
             renderItems?.({ isSelected }, idx, emblaApi) ?? (
-              <>
+              <Fragment key={idx}>
                 <span
-                  key={idx}
                   // style={{ "--size": size } as CSSProperties}
                   className={clsx(
                     type === "dot" &&
@@ -252,7 +251,7 @@ const EmblaNavigation = forwardRef<HTMLDivElement, EmblaNavigationProps>(
                     }
                   />
                 )}
-              </>
+              </Fragment>
             )
           );
         })}

@@ -17,16 +17,16 @@ const chipVariants = tv(
 );
 
 const Chip = forwardRef<RefHTMLElement<typeof DEFAULT_CHIP_ELEMENT>, ChipProps>(
-  ({ asChild, className, ...props }, ref) => {
+  ({ asChild, className, prefixIcon, suffixIcon, ...props }, ref) => {
     const Comp = asChild ? Slot : DEFAULT_CHIP_ELEMENT;
 
     const cns = chipVariants();
 
     return (
       <Comp {...props} ref={ref} className={cns.container({ className })}>
-        <Slot className={cns.icon()}>{props.prefixIcon}</Slot>
+        <Slot className={cns.icon()}>{prefixIcon}</Slot>
         <Slottable>{props.children}</Slottable>
-        <Slot className={cns.icon()}>{props.suffixIcon}</Slot>
+        <Slot className={cns.icon()}>{suffixIcon}</Slot>
       </Comp>
     );
   },

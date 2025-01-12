@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../Accordion";
+import { DialogTitle } from "../Dialog";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
 
 const Navbar = () => {
@@ -73,6 +74,7 @@ function MenuSheet() {
       </SheetTrigger>
 
       <SheetContent className="flex flex-col p-4" dir="rtl">
+        <DialogTitle className="sr-only">menu sidebar</DialogTitle>
         <Logo variant="with-title-desc" className="w-[156px]" />
 
         <hr className="mb-6 mt-4 h-px border-grey-100" />
