@@ -10,7 +10,9 @@ import { Location_Outline } from "@/components/atoms/icons/Location/Location";
 import { Notification_Outline } from "@/components/atoms/icons/Notifications/Notification";
 import { SearchNormal_Outline } from "@/components/atoms/icons/Search/SearchNormal";
 import Logo from "@/components/atoms/Logo";
+import NavLink from "@/components/atoms/NavLink";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
+import { dashboardNavItems } from "@/constants/dashboard";
 import Link from "next/link";
 import {
   Accordion,
@@ -18,7 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../Accordion";
-import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
 
 const Navbar = () => {
   return (
@@ -75,7 +77,7 @@ function MenuSheet() {
 
         <hr className="mb-6 mt-4 h-px border-grey-100" />
 
-        <Accordion type="single" collapsible>
+        <Accordion type="single" className="flex-1 overflow-y-auto" collapsible>
           <ul className="flex flex-col gap-6">
             <li>
               <Link
@@ -140,12 +142,25 @@ function MenuSheet() {
           <hr className="my-4 h-px border-grey-100" />
 
           <ul className="flex flex-col gap-6">
-            <AccordionItem value="menu-services" className="border-none">
+            <AccordionItem value="menu-dashboard" className="border-none">
               <AccordionTrigger className="p-0 text-tittle-2 font-normal text-grey-500">
                 داشبورد
               </AccordionTrigger>
-              <AccordionContent className="mt-1">
-                under development
+              <AccordionContent className="mt-1" asChild>
+                <ul className="mt-4 space-y-2 text-tittle-3">
+                  {Object.values(dashboardNavItems).map((item) => (
+                    <li key={item.label}>
+                      <SheetClose asChild>
+                        <NavLink
+                          href={item.href}
+                          className="text-grey-400 underline-offset-2 data-[state=active]:text-primary-500 data-[state=active]:underline"
+                        >
+                          {item.label}
+                        </NavLink>
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
               </AccordionContent>
             </AccordionItem>
             <li>
