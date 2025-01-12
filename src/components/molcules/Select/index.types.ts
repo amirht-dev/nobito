@@ -1,5 +1,8 @@
 import type { Command, CommandInput } from "@/components/atoms/Command";
-import type { InputProps } from "@/components/atoms/Input/index.types";
+import type {
+  FieldProps,
+  InputProps,
+} from "@/components/atoms/Input/index.types";
 import type {
   ComponentPropsWithoutRef,
   Dispatch,
@@ -44,7 +47,5 @@ export type SelectOptionsListAsyncProps = Merge<
   }
 >;
 
-export type SelectFieldInputProps = { label: string } & Omit<
-  InputProps,
-  "suffixIcon"
->;
+export type SelectFieldInputProps = { label: string } & FieldProps &
+  Omit<InputProps, "suffixIcon">;

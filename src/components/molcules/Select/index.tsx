@@ -51,13 +51,13 @@ const Select = ({ children, value, onChange }: SelectProps) => {
 const SelectFieldInput = forwardRef<
   ElementRef<typeof Input>,
   SelectFieldInputProps
->(({ label, disabled, ...props }, ref) => {
+>(({ label, disabled, id, required, ...props }, ref) => {
   const { value } = useSelectContext();
 
   return (
     <PopoverTrigger className="group" disabled={disabled}>
-      <Field>
-        <FieldLabel htmlFor={props.id}>{label}</FieldLabel>
+      <Field id={id} required={required}>
+        <FieldLabel>{label}</FieldLabel>
         <Input
           {...props}
           disabled={disabled}

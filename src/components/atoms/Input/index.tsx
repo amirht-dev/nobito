@@ -1,7 +1,15 @@
+"use client";
+
 import { tv } from "@/lib/tv";
+import { createCTX } from "@/utils/clientHelpers";
+import { cn } from "@/utils/helpers";
 import { Slot } from "@radix-ui/react-slot";
+import clsx from "clsx";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
-import type { InputProps } from "./index.types";
+import type { FieldContextType, FieldProps, InputProps } from "./index.types";
+
+const { context: FieldContext, hook: useFieldContext } =
+  createCTX<FieldContextType>("Field");
 
 export const inputVariants = tv({
   slots: {
@@ -70,6 +78,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     { size, fullWidth, prefixIcon, suffixIcon, containerProps, ...props },
     ref,
   ) => {
+    const ctx = useFieldContext({ throw: false });
     const cns = inputVariants({
       size,
       fullWidth,
@@ -85,6 +94,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           {...props}
           {...(props.value && { "data-fill": true })}
+          required={props.required ?? ctx?.required}
+          id={props.id ?? ctx?.id}
           ref={ref}
           className={cns.input({ className: props.className })}
         />
@@ -95,14 +106,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = "Input";
 
-const Field = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
-  (props, ref) => {
+const Field = forwardRef<HTMLDivElement, FieldProps>(
+  ({ id, required = false, className, ...props }, ref) => {
     return (
-      <div
-        {...props}
-        ref={ref}
-        className="group flex flex-col gap-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 [&:has(:disabled)_*]:cursor-not-allowed"
-      />
+      <FieldContext.Provider value={{ id, required }}>
+        <div
+          {...props}
+          ref={ref}
+          className={cn(
+            "group space-y-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 [&:has(:disabled)_*]:cursor-not-allowed",
+            className,
+          )}
+        />
+      </FieldContext.Provider>
     );
   },
 );
@@ -112,13 +128,21 @@ Field.displayName = "Field";
 const FieldLabel = forwardRef<
   HTMLLabelElement,
   ComponentPropsWithoutRef<"label">
->((props, ref) => {
+>(({ children, ...props }, ref) => {
+  const { id, required } = useFieldContext();
+
   return (
     <label
       {...props}
+      htmlFor={id}
       ref={ref}
-      className="self-start text-tittle-3 font-normal text-grey-400 transition-all group-focus-within:text-primary-500 group-has-[input[data-fill]]:text-black-400 group-focus-within:group-has-[input[data-fill]]:text-primary-500"
-    />
+      className={clsx(
+        "block text-start text-tittle-3 font-normal text-grey-400 transition-all group-focus-within:text-primary-500 group-has-[input[data-fill]]:text-black-400 group-focus-within:group-has-[input[data-fill]]:text-primary-500",
+      )}
+    >
+      {children}
+      {required && <span className="ms-2 text-error-500">*</span>}
+    </label>
   );
 });
 

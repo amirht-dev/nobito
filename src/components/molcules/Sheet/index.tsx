@@ -57,7 +57,7 @@ const sheetVariants = tv(
       },
       {
         side: ["right", "left"],
-        className: "inset-y-0 h-full w-3/4 sm:max-w-sm",
+        className: "inset-y-0 h-dvh w-3/4 sm:max-w-sm",
       },
     ],
     defaultVariants: {

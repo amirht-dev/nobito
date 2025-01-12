@@ -16,24 +16,24 @@ const AccountForm = () => {
   return (
     <form>
       <div className="grid gap-3 lg:grid-cols-2 lg:gap-6">
-        <Field>
-          <FieldLabel htmlFor="name">نام</FieldLabel>
-          <Input fullWidth id="name" />
+        <Field id="name">
+          <FieldLabel>نام</FieldLabel>
+          <Input fullWidth />
         </Field>
 
-        <Field>
-          <FieldLabel htmlFor="family-name">نام خانوادگی</FieldLabel>
-          <Input fullWidth id="family-name" />
+        <Field id="family-name">
+          <FieldLabel>نام خانوادگی</FieldLabel>
+          <Input fullWidth />
         </Field>
 
-        <Field>
-          <FieldLabel htmlFor="national-code">کدملی</FieldLabel>
-          <Input fullWidth id="national-code" />
+        <Field id="national-code">
+          <FieldLabel>کدملی</FieldLabel>
+          <Input fullWidth />
         </Field>
 
-        <Field>
-          <FieldLabel htmlFor="phone-number">شماره تلفن</FieldLabel>
-          <Input fullWidth id="phone-number" />
+        <Field id="phone-number">
+          <FieldLabel>شماره تلفن</FieldLabel>
+          <Input fullWidth />
         </Field>
 
         <LocationFields />
