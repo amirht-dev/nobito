@@ -3,6 +3,10 @@ import {
   NoteText_Outline,
 } from "@/components/atoms/icons/Content-Edit/NoteText";
 import {
+  Message_Bold,
+  Message_Outline,
+} from "@/components/atoms/icons/Emails-Messages/Message";
+import {
   SMS_Bold,
   SMS_Outline,
 } from "@/components/atoms/icons/Emails-Messages/SMS";
@@ -51,5 +55,14 @@ export const dashboardNavItems = {
     },
     href: "/dashboard/medical-record",
     breadcrumbLabel: "پرونده پزشکی",
+  },
+  feedbacks: {
+    label: "بازخوردها",
+    icons: {
+      disactive: <Message_Outline />,
+      active: <Message_Bold />,
+    },
+    href: "/dashboard/feedbacks",
+    breadcrumbLabel: "بازخوردها",
   },
 };

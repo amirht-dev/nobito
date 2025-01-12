@@ -62,3 +62,14 @@ export const MedicalRecord = {
     },
   },
 } satisfies Story;
+
+export const Feedbacks = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: dashboardNavItems.feedbacks.href,
+        segments: dashboardNavItems.feedbacks.href.split("/").slice(2),
+      },
+    },
+  },
+} satisfies Story;
