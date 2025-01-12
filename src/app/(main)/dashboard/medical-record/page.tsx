@@ -15,7 +15,7 @@ export default function DashboardMedicalRecordPage() {
   return (
     <div className="space-y-6 rounded-2xl border border-grey-200 bg-white-100 p-6 lg:space-y-12">
       <div className="flex gap-6 max-lg:flex-col max-lg:items-center lg:justify-between">
-        <Avatar className="size-32 rounded-full lg:hidden">
+        <Avatar className="size-[1em] rounded-full text-[128px] lg:hidden">
           <AvatarImage src="https://i.pravatar.cc/300" alt="" />
           <AvatarFallback>AT</AvatarFallback>
         </Avatar>
