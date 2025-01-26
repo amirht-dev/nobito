@@ -77,10 +77,9 @@ declare global {
     never,
     Omit<
       {
-        params: RouteParams<TParams>;
-        searchParams: Record<
-          LooseString<TSearchParams>,
-          string | string[] | undefined
+        params: Promise<RouteParams<TParams>>;
+        searchParams: Promise<
+          Record<LooseString<TSearchParams>, string | string[] | undefined>
         >;
       },
       | If<IsEqual<TParams, never>, "params", never>
