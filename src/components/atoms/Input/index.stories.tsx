@@ -98,11 +98,10 @@ export const WithLabel = {
   render(args) {
     const [{ value }, setArgs] = useArgs();
     return (
-      <Field>
-        <FieldLabel htmlFor="input">نام</FieldLabel>
+      <Field id="input">
+        <FieldLabel>نام</FieldLabel>
         <Input
           {...args}
-          id="input"
           value={value}
           onChange={(e) => {
             args.onChange?.(e);
