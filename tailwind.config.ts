@@ -153,6 +153,7 @@ const config: Config = {
     backgroundImage: {
       pattern: "url('/patterns/pattern1.png')",
       pattern2: "url('/patterns/pattern2.png')",
+      pattern3: "url('/patterns/pattern3.png')",
     },
     extend: {
       lineHeight: {
