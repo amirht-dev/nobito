@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRefWithProps } from "@/types/utils";
 import type {
   ComponentPropsWithoutRef,
   ComponentPropsWithRef,
@@ -6,7 +7,6 @@ import type {
 import type { VariantProps } from "tailwind-variants";
 import type { Merge } from "type-fest";
 import type { inputVariants } from ".";
-import type { ComponentPropsWithoutRefWithProps } from "@/types/utils";
 
 export type FieldContextType = { id: string; required: InputProps["required"] };
 
@@ -26,6 +26,16 @@ export type InputProps = Merge<
       containerProps?: ComponentPropsWithRef<"div">;
       prefixIcon?: ReactNode;
       suffixIcon?: ReactNode;
+    }
+  >
+>;
+
+export type TextareaProps = Merge<
+  ComponentPropsWithoutRef<"textarea">,
+  Merge<
+    Omit<VariantProps<typeof inputVariants>, "icon">,
+    {
+      containerProps?: ComponentPropsWithRef<"div">;
     }
   >
 >;

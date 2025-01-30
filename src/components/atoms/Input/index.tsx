@@ -6,7 +6,12 @@ import { cn } from "@/utils/helpers";
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
-import type { FieldContextType, FieldProps, InputProps } from "./index.types";
+import type {
+  FieldContextType,
+  FieldProps,
+  InputProps,
+  TextareaProps,
+} from "./index.types";
 
 const { context: FieldContext, hook: useFieldContext } =
   createCTX<FieldContextType>("Field");
@@ -106,6 +111,33 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = "Input";
 
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ size, fullWidth = true, containerProps, ...props }, ref) => {
+    const ctx = useFieldContext({ throw: false });
+    const cns = inputVariants({
+      size,
+      fullWidth,
+    });
+    return (
+      <div
+        {...containerProps}
+        {...(props.value && { "data-fill": true })}
+        className={cns.container({ className: containerProps?.className })}
+      >
+        <textarea
+          {...props}
+          {...(props.value && { "data-fill": true })}
+          required={props.required ?? ctx?.required}
+          id={props.id ?? ctx?.id}
+          ref={ref}
+          className={cns.input({ className: props.className })}
+        />
+      </div>
+    );
+  },
+);
+Textarea.displayName = "Textarea";
+
 const Field = forwardRef<HTMLDivElement, FieldProps>(
   ({ id, required = false, className, ...props }, ref) => {
     return (
@@ -148,4 +180,4 @@ const FieldLabel = forwardRef<
 
 FieldLabel.displayName = "FieldLabel";
 
-export { Field, FieldLabel, Input };
+export { Field, FieldLabel, Input, Textarea };

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@/types/storybook";
 import { useArgs } from "@storybook/preview-api";
 import { fn } from "@storybook/test";
-import { Field, FieldLabel, Input } from ".";
-import type { InputProps } from "./index.types";
+import { Field, FieldLabel, Input, Textarea } from ".";
+import type { InputProps, TextareaProps } from "./index.types";
 import { SMS_Bold } from "../icons/Emails-Messages/SMS";
 import { ChevronDown_Outline } from "../icons/Arrow/ChevronDown";
 
@@ -113,4 +113,29 @@ export const WithLabel = {
   },
 } satisfies Story<
   Pick<InputProps, "value" | "onChange" | "prefixIcon" | "suffixIcon">
+>;
+
+export const TextareaWithLabel = {
+  args: {
+    value: "",
+    onChange: fn(),
+  },
+  render(args) {
+    const [{ value }, setArgs] = useArgs();
+    return (
+      <Field id="input">
+        <FieldLabel>توضیحات</FieldLabel>
+        <Textarea
+          {...args}
+          value={value}
+          onChange={(e) => {
+            args.onChange?.(e);
+            setArgs({ value: e.target.value });
+          }}
+        />
+      </Field>
+    );
+  },
+} satisfies Story<
+  Pick<TextareaProps, "value" | "onChange">
 >;
