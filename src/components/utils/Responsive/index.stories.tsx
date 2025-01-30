@@ -14,11 +14,8 @@ export const Story = {
   render: () => (
     <Responsive
       component={Button}
-      size="sm"
-      sm={{ size: "sm", children: "button in small" }}
-      md={{ size: "md", children: "button in medium" }}
-      lg={{ size: "lg", children: "button in large" }}
-      xl={{ size: "xl", children: "button in xlarge" }}
+      color={{ DEFAULT: "secondary", lg: "black", sm: "primary" }}
+      size={{ DEFAULT: "sm", md: "md", lg: "lg", xl: "xl" }}
     >
       button
     </Responsive>
