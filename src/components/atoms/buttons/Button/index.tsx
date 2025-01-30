@@ -1,3 +1,5 @@
+"use client";
+
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { forwardRef } from "react";
@@ -5,6 +7,7 @@ import { DEFAULT_BUTTON_ELEMENT } from "./index.constants";
 import type { ButtonProps } from "./index.types";
 import { tv } from "tailwind-variants";
 import { twMergeConfig } from "@/lib/tailwind-merge";
+import { withResponsive } from "@/components/utils/Responsive";
 
 export const buttonVariants = tv(
   {
@@ -189,3 +192,5 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export default Button;
+
+export const ResponsiveButton = withResponsive(Button);
