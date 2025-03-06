@@ -174,28 +174,34 @@ function MenuSheet() {
               </AccordionContent>
             </AccordionItem>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                درباره ما
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="/about-us"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  درباره ما
+                </Link>
+              </SheetClose>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                تماس با ما
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="/contact-us"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  تماس با ما
+                </Link>
+              </SheetClose>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                سوالات متداول
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="#"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  سوالات متداول
+                </Link>
+              </SheetClose>
             </li>
           </ul>
         </Accordion>
@@ -277,10 +283,10 @@ function Menu() {
   return (
     <ul className="flex items-center gap-6 text-tittle-2 font-medium text-grey-500">
       <li>
-        <Link href="#">درباره ما</Link>
+        <Link href="/about-us">درباره ما</Link>
       </li>
       <li>
-        <Link href="#">تماس با ما</Link>
+        <Link href="/contact-us">تماس با ما</Link>
       </li>
       <li>
         <Link href="#">سوالات متداول</Link>
