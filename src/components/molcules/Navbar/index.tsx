@@ -13,7 +13,8 @@ import Logo from "@/components/atoms/Logo";
 import NavLink from "@/components/atoms/NavLink";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
 import { dashboardNavItems } from "@/constants/dashboard";
-import { signIn } from "@/lib/auth";
+import { createClient } from "@/lib/supabase/server";
+import { logoutAction } from "@/services/actions/authActions";
 import Link from "next/link";
 import {
   Accordion,
@@ -23,6 +24,7 @@ import {
 } from "../Accordion";
 import { DialogTitle } from "../Dialog";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
+import LogoutButton from "@/components/atoms/buttons/LogoutButton";
 
 const Navbar = () => {
   return (
@@ -43,7 +45,13 @@ const Navbar = () => {
 
 export default Navbar;
 
-function Buttons() {
+async function Buttons() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <div className="ms-auto flex items-center gap-3">
       <Sheet>
@@ -60,16 +68,13 @@ function Buttons() {
         <Notification_Outline className="size-8 text-grey-500" />
       </IconButton>
 
-      <form
-        action={async () => {
-          "use server";
-          await signIn();
-        }}
-      >
-        <Button className="max-lg:hidden" size="lg" type="submit">
-          ورود/ثبت نام
+      {user ? (
+        <LogoutButton />
+      ) : (
+        <Button className="max-lg:hidden" size="lg" asChild>
+          <Link href="/auth/login">ورود/ثبت نام</Link>
         </Button>
-      </form>
+      )}
     </div>
   );
 }
