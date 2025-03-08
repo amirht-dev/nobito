@@ -10,8 +10,6 @@ import { useActionState } from "react";
 const LoginPage = () => {
   const [state, action] = useActionState(signInAction, null);
 
-  console.log({ state });
-
   return (
     <main className="relative flex min-h-dvh items-center justify-center">
       <div className="absolute inset-x-0 top-1/2 h-[200px] -translate-y-1/2 bg-repeat bg-pattern-mobile lg:h-[242px] lg:bg-pattern-desktop" />
