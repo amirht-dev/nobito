@@ -13,7 +13,8 @@ import Logo from "@/components/atoms/Logo";
 import NavLink from "@/components/atoms/NavLink";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
 import { dashboardNavItems } from "@/constants/dashboard";
-import { signIn } from "@/lib/auth";
+import { createClient } from "@/lib/supabase/server";
+import { logoutAction } from "@/services/actions/authActions";
 import Link from "next/link";
 import {
   Accordion,
@@ -23,6 +24,7 @@ import {
 } from "../Accordion";
 import { DialogTitle } from "../Dialog";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
+import LogoutButton from "@/components/atoms/buttons/LogoutButton";
 
 const Navbar = () => {
   return (
@@ -43,7 +45,13 @@ const Navbar = () => {
 
 export default Navbar;
 
-function Buttons() {
+async function Buttons() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <div className="ms-auto flex items-center gap-3">
       <Sheet>
@@ -60,16 +68,13 @@ function Buttons() {
         <Notification_Outline className="size-8 text-grey-500" />
       </IconButton>
 
-      <form
-        action={async () => {
-          "use server";
-          await signIn();
-        }}
-      >
-        <Button className="max-lg:hidden" size="lg" type="submit">
-          ورود/ثبت نام
+      {user ? (
+        <LogoutButton />
+      ) : (
+        <Button className="max-lg:hidden" size="lg" asChild>
+          <Link href="/auth/login">ورود/ثبت نام</Link>
         </Button>
-      </form>
+      )}
     </div>
   );
 }
@@ -174,28 +179,34 @@ function MenuSheet() {
               </AccordionContent>
             </AccordionItem>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                درباره ما
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="/about-us"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  درباره ما
+                </Link>
+              </SheetClose>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                تماس با ما
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="/contact-us"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  تماس با ما
+                </Link>
+              </SheetClose>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-tittle-2 font-normal text-grey-500"
-              >
-                سوالات متداول
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href="#"
+                  className="text-tittle-2 font-normal text-grey-500"
+                >
+                  سوالات متداول
+                </Link>
+              </SheetClose>
             </li>
           </ul>
         </Accordion>
@@ -277,10 +288,10 @@ function Menu() {
   return (
     <ul className="flex items-center gap-6 text-tittle-2 font-medium text-grey-500">
       <li>
-        <Link href="#">درباره ما</Link>
+        <Link href="/about-us">درباره ما</Link>
       </li>
       <li>
-        <Link href="#">تماس با ما</Link>
+        <Link href="/contact-us">تماس با ما</Link>
       </li>
       <li>
         <Link href="#">سوالات متداول</Link>
