@@ -43,7 +43,7 @@ const ReserveDoctorCard = forwardRef<HTMLDivElement, ReserveDoctorCardProps>(
         <div className={c.imageWrapper()}>
           <div className={c.imageContainer()}>
             <Image
-              src="https://placehold.co/200"
+              src="https://placehold.co/200.png"
               alt="img"
               fill
               className={c.image()}

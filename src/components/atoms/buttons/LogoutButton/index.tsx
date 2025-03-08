@@ -1,17 +1,21 @@
 "use client";
 
 import { logoutAction } from "@/services/actions/authActions";
-import Button from "../Button";
 import { usePathname } from "next/navigation";
+import SubmitButton from "../SubmitButton";
 
 const LogoutButton = () => {
   const pathname = usePathname();
 
   return (
     <form action={logoutAction.bind(null, pathname)}>
-      <Button className="max-lg:hidden" size="lg" type="submit">
+      <SubmitButton
+        className="max-lg:hidden"
+        size="lg"
+        pendingMessage="در حال خروج"
+      >
         خروج
-      </Button>
+      </SubmitButton>
     </form>
   );
 };

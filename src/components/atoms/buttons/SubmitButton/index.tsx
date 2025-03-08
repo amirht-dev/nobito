@@ -11,7 +11,7 @@ const SubmitButton = ({
 }: Merge<ButtonProps, { pendingMessage?: string }>) => {
   const { pending } = useFormStatus();
   return (
-    <Button {...props} disabled={pending || disabled}>
+    <Button type="submit" {...props} disabled={pending || disabled}>
       {pending && pendingMessage ? pendingMessage : children}
     </Button>
   );
