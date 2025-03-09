@@ -17,7 +17,8 @@ type SignInData =
     };
 
 export async function signInAction(
-  _: unknown,
+  redirectTo: string | null,
+  prevState: unknown,
   formData: FormData,
 ): Promise<SignInData> {
   const credential = z
@@ -32,6 +33,9 @@ export async function signInAction(
 
   const res = await supabase.auth.signInWithOtp({
     email: credential.data,
+    options: {
+      emailRedirectTo: redirectTo ?? undefined,
+    },
   });
 
   const logger = authLogger.child({

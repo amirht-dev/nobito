@@ -5,10 +5,16 @@ import { Input } from "@/components/atoms/Input";
 import Logo from "@/components/atoms/Logo";
 import { signInAction } from "@/services/actions/authActions";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useActionState } from "react";
 
 const LoginPage = () => {
-  const [state, action] = useActionState(signInAction, null);
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo");
+  const [state, action] = useActionState(
+    signInAction.bind(null, redirectTo),
+    null,
+  );
 
   return (
     <main className="relative flex min-h-dvh items-center justify-center">
