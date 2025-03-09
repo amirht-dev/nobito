@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import SubmitButton from "../SubmitButton";
 import type { SubmitButtonProps } from "../SubmitButton/index.types";
 
-const LogoutButton = (props: SubmitButtonProps) => {
+const LogoutButton = ({ formProps, ...props }: SubmitButtonProps) => {
   const pathname = usePathname();
 
   return (
-    <form action={logoutAction.bind(null, pathname)}>
+    <form {...formProps} action={logoutAction.bind(null, pathname)}>
       <SubmitButton {...props} />
     </form>
   );

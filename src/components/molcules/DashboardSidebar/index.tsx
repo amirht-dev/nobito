@@ -25,6 +25,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../Dialog";
+import LogoutDialogContent from "../LogoutDialogContent";
 
 const DashboardSidebar = forwardRef<
   HTMLElement,
@@ -95,29 +96,7 @@ const DashboardSidebar = forwardRef<
             disactiveIcon={<Logout_Outline />}
           />
 
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>خروج از حساب کاربری</DialogTitle>
-              <DialogClose className="max-lg:hidden" />
-            </DialogHeader>
-
-            <DialogDescription>
-              با خروج از حساب کاربریتان به اطلاعاتی که وارد کردید دسترسی نخواهید
-              داشت و باید مجددا وارد شوید
-            </DialogDescription>
-
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="outline" color="black" size="md">
-                  انصراف
-                </Button>
-              </DialogClose>
-
-              <LogoutButton size="md" pendingMessage="در حال خروج">
-                خروج از حساب
-              </LogoutButton>
-            </DialogFooter>
-          </DialogContent>
+          <LogoutDialogContent />
         </Dialog>
       </ul>
     </aside>
