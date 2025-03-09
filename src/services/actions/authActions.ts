@@ -69,7 +69,7 @@ export async function signInAction(
   };
 }
 
-export async function logoutAction(redirectPath: string) {
+export async function logoutAction(redirectPath?: string) {
   const supabase = await createClient();
 
   const {

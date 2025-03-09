@@ -1,14 +1,13 @@
 import { useFormStatus } from "react-dom";
-import type { Merge } from "type-fest";
 import Button from "../Button";
-import type { ButtonProps } from "../Button/index.types";
+import type { SubmitButtonProps } from "./index.types";
 
 const SubmitButton = ({
   pendingMessage,
   disabled,
   children,
   ...props
-}: Merge<ButtonProps, { pendingMessage?: string }>) => {
+}: SubmitButtonProps) => {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" {...props} disabled={pending || disabled}>

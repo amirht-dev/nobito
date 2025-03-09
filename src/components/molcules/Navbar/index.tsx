@@ -1,5 +1,6 @@
 import Button from "@/components/atoms/buttons/Button";
 import IconButton from "@/components/atoms/buttons/IconButton";
+import LogoutButton from "@/components/atoms/buttons/LogoutButton";
 import { ChevronDown_Outline } from "@/components/atoms/icons/Arrow/ChevronDown";
 import { Linkedin_Outline } from "@/components/atoms/icons/Crypto-Company/Linkedin";
 import { Youtube_Outline } from "@/components/atoms/icons/Crypto-Company/Youtube";
@@ -14,7 +15,6 @@ import NavLink from "@/components/atoms/NavLink";
 import SearchSheetContent from "@/components/organisms/SearchSheetContent";
 import { dashboardNavItems } from "@/constants/dashboard";
 import { createClient } from "@/lib/supabase/server";
-import { logoutAction } from "@/services/actions/authActions";
 import Link from "next/link";
 import {
   Accordion,
@@ -24,7 +24,6 @@ import {
 } from "../Accordion";
 import { DialogTitle } from "../Dialog";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
-import LogoutButton from "@/components/atoms/buttons/LogoutButton";
 
 const Navbar = () => {
   return (
@@ -69,7 +68,13 @@ async function Buttons() {
       </IconButton>
 
       {user ? (
-        <LogoutButton />
+        <LogoutButton
+          size="lg"
+          className="max-lg:hidden"
+          pendingMessage="در حال خروج"
+        >
+          خروج
+        </LogoutButton>
       ) : (
         <Button className="max-lg:hidden" size="lg" asChild>
           <Link href="/auth/login">ورود/ثبت نام</Link>
@@ -207,6 +212,16 @@ function MenuSheet() {
                   سوالات متداول
                 </Link>
               </SheetClose>
+            </li>
+            <li>
+              <LogoutButton
+                pendingMessage="در حال خروج"
+                variant="text"
+                size="sm"
+                className="px-0 text-error-500"
+              >
+                خروج از حساب
+              </LogoutButton>
             </li>
           </ul>
         </Accordion>
