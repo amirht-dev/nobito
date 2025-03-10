@@ -24,7 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../Accordion";
-import { Dialog, DialogTitle, DialogTrigger } from "../Dialog";
+import { Dialog, DialogHeader, DialogTitle, DialogTrigger } from "../Dialog";
 import LogoutDialogContent from "../LogoutDialogContent";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../Sheet";
 
@@ -105,155 +105,114 @@ async function MenuSheet() {
       <SheetContent className="flex flex-col p-0" dir="rtl">
         <DialogTitle className="sr-only">menu sidebar</DialogTitle>
 
-        <div className="flex flex-1 flex-col p-4">
+        <DialogHeader className="border-none p-4 pb-0">
           <Logo variant="with-title-desc" className="w-[156px]" />
+        </DialogHeader>
 
-          <hr className="mb-6 mt-4 h-px border-grey-100" />
+        <hr className="mx-4 mb-6 mt-4 h-px border-grey-100" />
 
-          <Accordion
-            type="single"
-            className="flex-1 overflow-y-auto"
-            collapsible
-          >
-            <ul className="flex flex-col gap-6">
-              <li>
-                <Link
-                  href="#"
-                  className="text-tittle-2 font-normal text-grey-500"
+        <Accordion
+          type="single"
+          className="flex-1 overflow-y-auto px-4"
+          collapsible
+        >
+          <MenuSheetList className="flex flex-col gap-6">
+            <MenuSheetItem>
+              <Link href="#">نوبت دهی مطب</Link>
+            </MenuSheetItem>
+
+            <AccordionItem value="menu-services" className="border-none">
+              <AccordionTrigger className="p-0 text-tittle-2 font-normal text-grey-500">
+                خدمات
+              </AccordionTrigger>
+              <AccordionContent className="mt-1">
+                under development
+              </AccordionContent>
+            </AccordionItem>
+
+            <MenuSheetItem>
+              <Link href="#">مشاوره آنلاین</Link>
+            </MenuSheetItem>
+
+            <MenuSheetItem>
+              <Link href="#">مجله سلامت</Link>
+            </MenuSheetItem>
+
+            <MenuSheetItem>
+              <Link href="#" className="flex items-center gap-2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  نوبت دهی مطب
-                </Link>
-              </li>
-              <AccordionItem value="menu-services" className="border-none">
+                  <circle cx="8" cy="8" r="8" fill="#F9E8E8" />
+                  <circle cx="8" cy="8" r="4" fill="#C71A1A" />
+                </svg>
+
+                <span>نیکوکاری</span>
+              </Link>
+            </MenuSheetItem>
+
+            <MenuSheetItem>
+              <Link href="#">اعلان ها</Link>
+            </MenuSheetItem>
+          </MenuSheetList>
+
+          <hr className="my-4 h-px border-grey-100" />
+
+          <MenuSheetList className="flex flex-col gap-6">
+            {user && (
+              <AccordionItem value="menu-dashboard" className="border-none">
                 <AccordionTrigger className="p-0 text-tittle-2 font-normal text-grey-500">
-                  خدمات
+                  داشبورد
                 </AccordionTrigger>
-                <AccordionContent className="mt-1">
-                  under development
+                <AccordionContent className="mt-1" asChild>
+                  <ul className="mt-4 space-y-2 text-tittle-3">
+                    {Object.values(dashboardNavItems).map((item) => (
+                      <li key={item.label}>
+                        <SheetClose asChild>
+                          <NavLink
+                            href={item.href}
+                            className="text-grey-400 underline-offset-2 data-[state=active]:text-primary-500 data-[state=active]:underline"
+                          >
+                            {item.label}
+                          </NavLink>
+                        </SheetClose>
+                      </li>
+                    ))}
+                  </ul>
                 </AccordionContent>
               </AccordionItem>
-              <li>
-                <Link
-                  href="#"
-                  className="text-tittle-2 font-normal text-grey-500"
-                >
-                  مشاوره آنلاین
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-tittle-2 font-normal text-grey-500"
-                >
-                  مجله سلامت
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 text-tittle-2 font-normal text-grey-500"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="8" cy="8" r="8" fill="#F9E8E8" />
-                    <circle cx="8" cy="8" r="4" fill="#C71A1A" />
-                  </svg>
-                  <span>نیکوکاری</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-tittle-2 font-normal text-grey-500"
-                >
-                  اعلان ها
-                </Link>
-              </li>
-            </ul>
+            )}
+            <MenuSheetItem>
+              <Link href="/about-us">درباره ما</Link>
+            </MenuSheetItem>
 
-            <hr className="my-4 h-px border-grey-100" />
+            <MenuSheetItem>
+              <Link href="/contact-us">تماس با ما</Link>
+            </MenuSheetItem>
 
-            <ul className="flex flex-col gap-6">
-              {user && (
-                <AccordionItem value="menu-dashboard" className="border-none">
-                  <AccordionTrigger className="p-0 text-tittle-2 font-normal text-grey-500">
-                    داشبورد
-                  </AccordionTrigger>
-                  <AccordionContent className="mt-1" asChild>
-                    <ul className="mt-4 space-y-2 text-tittle-3">
-                      {Object.values(dashboardNavItems).map((item) => (
-                        <li key={item.label}>
-                          <SheetClose asChild>
-                            <NavLink
-                              href={item.href}
-                              className="text-grey-400 underline-offset-2 data-[state=active]:text-primary-500 data-[state=active]:underline"
-                            >
-                              {item.label}
-                            </NavLink>
-                          </SheetClose>
-                        </li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
-              <li>
-                <SheetClose asChild>
-                  <Link
-                    href="/about-us"
-                    className="text-tittle-2 font-normal text-grey-500"
-                  >
-                    درباره ما
-                  </Link>
-                </SheetClose>
-              </li>
-              <li>
-                <SheetClose asChild>
-                  <Link
-                    href="/contact-us"
-                    className="text-tittle-2 font-normal text-grey-500"
-                  >
-                    تماس با ما
-                  </Link>
-                </SheetClose>
-              </li>
-              <li>
-                <SheetClose asChild>
-                  <Link
-                    href="#"
-                    className="text-tittle-2 font-normal text-grey-500"
-                  >
-                    سوالات متداول
-                  </Link>
-                </SheetClose>
-              </li>
-              {user && (
-                <SheetClose>
-                  <li>
-                    <Dialog>
-                      <DialogTrigger className="block text-tittle-2 font-normal text-grey-500 transition-colors hover:text-error-500">
-                        خروج از حساب
-                      </DialogTrigger>
+            <MenuSheetItem>
+              <Link href="#">سوالات متداول</Link>
+            </MenuSheetItem>
 
-                      <LogoutDialogContent />
-                    </Dialog>
-                  </li>
-                </SheetClose>
-              )}
-            </ul>
-          </Accordion>
+            {user && (
+              <Dialog>
+                <MenuSheetItem className="transition-colors hover:text-error-500">
+                  <DialogTrigger>خروج از حساب</DialogTrigger>
+                </MenuSheetItem>
 
-          <SocialMedias />
-        </div>
+                <LogoutDialogContent />
+              </Dialog>
+            )}
+          </MenuSheetList>
+        </Accordion>
 
-        {user ? (
-          <div className="">{user.email}</div>
-        ) : (
+        <SocialMedias />
+
+        {!user && (
           <Button asChild>
             <Link href="/auth/login" className="text-center">
               ورود/ثبت نام
@@ -262,6 +221,28 @@ async function MenuSheet() {
         )}
       </SheetContent>
     </Sheet>
+  );
+}
+
+function MenuSheetList({
+  className,
+  ...props
+}: ComponentPropsWithoutRef<"ul">) {
+  return <ul {...props} className={cn("flex flex-col gap-6", className)} />;
+}
+
+function MenuSheetItem({
+  className,
+  children,
+  ...props
+}: ComponentPropsWithoutRef<"li">) {
+  return (
+    <li
+      {...props}
+      className={cn("text-tittle-2 font-normal text-grey-500", className)}
+    >
+      <SheetClose asChild>{children}</SheetClose>
+    </li>
   );
 }
 
@@ -307,7 +288,7 @@ function NavLinks() {
 
 function SocialMedias() {
   return (
-    <ul className="flex text-grey-500 max-lg:mt-auto max-lg:justify-between lg:gap-6">
+    <ul className="flex px-4 text-grey-500 max-lg:mt-auto max-lg:justify-between lg:gap-6">
       <li title="instagram">
         <Link href="#">
           <Instagram_Outline className="size-8 lg:size-6" />
